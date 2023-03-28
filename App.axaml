@@ -1,0 +1,11 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:internal="clr-namespace:Microsoft.EntityFrameworkCore.Metadata.Internal;assembly=Microsoft.EntityFrameworkCore"
+             xmlns:easyShop="clr-namespace:EasyShop"
+             x:Class="EasyShop.App">
+
+    <Application.Styles>
+        <FluentTheme Mode="Light"/>
+         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Default.xaml"/>
+    </Application.Styles>
+</Application>

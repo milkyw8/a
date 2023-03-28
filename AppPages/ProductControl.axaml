@@ -1,0 +1,85 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EasyShop.AppPages.ProductControl">
+    <Grid RowDefinitions="50, *, 25">
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" >
+            <DockPanel>
+                <Label
+                    Content="EASYSHOP"
+                    FontWeight="Bold"
+                    FontSize="18" 
+                    Margin="10 0 0 0"/>
+                <DockPanel HorizontalAlignment="Right" Margin="0 0 10 0">
+                    <Button Name="BtnBasket" Content="Корзина" Click="BtnBasket_OnClick" />
+                    <Button Name="BtnSignUp" Content="Войти" Click="BtnSignUp_OnClick" />
+                </DockPanel>
+            </DockPanel>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" 
+                    Margin="10 10 10 0 "
+                    Orientation="Vertical">
+            <DockPanel>
+                <TextBox
+                    Name="TxbSearch"
+                    Text="Найти"
+                    MinWidth="710"
+                    GotFocus="TxbSearch_OnGotFocus" 
+                />
+                <Button 
+                    Margin="10 0 0 0"
+                    Name="BtnSearch" 
+                    Content="Найти"
+                    Click="BtnSearch_OnClick"/>
+            </DockPanel>
+          
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Margin="0 50 0 0">
+            <ScrollViewer
+                MinWidth="800"
+                MinHeight="450"
+                MaxWidth="1920"
+                MaxHeight="1080"
+
+                AllowAutoHide="True">
+                <ScrollViewer
+                    AllowAutoHide="True"
+                    VerticalScrollBarVisibility="Disabled"
+                    HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl Name="ItemsProduct">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel
+                                    Margin="0 10 0 0"
+                                    HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate >
+                                <StackPanel Margin="15">
+
+                                    <Image Source="/Assets/noImage.jpg" Width="100" Height="100" />
+
+                                    <TextBlock Text="{Binding Name, Mode=OneWay}" />
+                                    <TextBlock Text="{Binding Description, Mode=OneWay }" />
+                                    <TextBlock Text="{Binding Price, Mode=OneWay}" />
+                                    <Button
+                                        Name="BtnBuy"
+                                        Click="BtnBuy_OnClick"
+                                        Content="Купить"
+                                        HorizontalAlignment="Center" 
+                                        />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</UserControl>

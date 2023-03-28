@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EasyShop.AppPages.BasketControl">
+    <Grid RowDefinitions="50, *, 25">
+        <StackPanel Grid.Row="0" VerticalAlignment="Center">
+            <DockPanel Margin="10"> 
+                <Label 
+                    Content="Корзина"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Margin="10 0 0 0 "/>
+                <DockPanel HorizontalAlignment="Right">
+                    <Button 
+                        Name="BtnProducts" 
+                        Content="Каталог"
+                        Click="BtnProducts_OnClick"/>
+                </DockPanel>                
+            </DockPanel>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1"
+            MinWidth="800"
+            MinHeight="450"
+            MaxWidth="1920"
+            MaxHeight="1080"
+
+            AllowAutoHide="True">
+            <ScrollViewer
+                AllowAutoHide="True"
+                VerticalScrollBarVisibility="Disabled"
+                HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl Name="ItemsProduct" Items="{Binding Basket}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel
+                                Margin="0 10 0 0"
+                                HorizontalAlignment="Center" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="15">
+                                
+                                <TextBlock Text="{Binding Product.Name, Mode=OneWay}" />
+                                <!-- <TextBlock Text="{Binding Product.Description , Mode=OneWay }" /> -->
+                                <!-- <TextBlock Text="{Binding Product.Price, Mode=OneWay}" /> -->
+                                <!-- <TextBlock Text="{Binding Count, Mode=OneWay}" /> -->
+                              
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </ScrollViewer>
+        <!--     <DataGrid -->
+        <!--         Grid.Row="1" -->
+        <!--         Name="DgBasket"> -->
+        <!--         <DataGrid.Columns> -->
+        <!--             <DataGridTemplateColumn> -->
+        <!--                 <DataGridTemplateColumn.CellTemplate> -->
+        <!--                     <DataTemplate > -->
+        <!--                         <StackPanel > -->
+        <!--                             <TextBlock Name="IdProduct" Text="0" /> -->
+        <!--                         </StackPanel> -->
+        <!--                     </DataTemplate> -->
+        <!--                      -->
+        <!--                 </DataGridTemplateColumn.CellTemplate> -->
+        <!--             </DataGridTemplateColumn> -->
+        <!--         </DataGrid.Columns> -->
+        <!--     </DataGrid> -->
+    </Grid>
+</UserControl>
